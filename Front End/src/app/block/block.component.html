@@ -1,0 +1,24 @@
+<html>
+<div class="Block" [style.left]="blockService.getBlockX() + 'px'" [style.top]="blockService.getBlockY() + 'px'" [style.boxShadow] = "boxShadow"
+	[style.zIndex] = "zIndex">
+	<div id="Test_Title">
+		<p>{{this.title}}</p>
+	</div>
+	<svg class="Line_1" viewBox="0 0 278 1">
+		<path id="Line_1" d="M 0 0 L 278 0">
+		</path>
+	</svg>
+	<div class="Description_Container">
+		<div id="Test_Description">
+			<p>{{this.description}}</p>
+		</div>
+	</div>
+	<button id="Block_Button" (appShortPressDirective)="blockClick()"
+		(appLongMousedownDirective)="startBlockDrag($event)" (mousemove)="blockDrag($event)"
+		(appLongPressDirective)="closeBlockDrag()" (mouseleave)="closeBlockDrag()"
+		(mousedown)="preventCanvasDrag($event)"></button>
+	<button class="Add_Button" (mousedown)="preventCanvasDrag($event); addButtonDown(); addButtonMouseDown()"
+		(mouseup)="closeAddButtonDrag(); addButtonMouseUp()" [style.top]="addButtonY + 'px'" [style.left]="addButtonX + 'px'"></button>
+</div>
+
+</html>

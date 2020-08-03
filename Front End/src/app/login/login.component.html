@@ -1,0 +1,11 @@
+<div id="login-container">
+	<div class="main">
+		<p class="sign" align="center">Welcome</p>
+		<div class="error_container">{{this.errorMsg}}</div>
+		<form class="form1" [formGroup]="loginForm" [style.padding-top]="paddingForErrorMsg" (ngSubmit)="onClick()">
+			<input class="un " formControlName="username" type="text" align="center" placeholder="Username" (input)="onInputChnage()">
+			<input class="pass" formControlName="password" type="password" align="center" placeholder="Password" (input)="onInputChnage()">
+			<button type="submit" class="submit" align="center">{{this.buttonText}}</button>
+		</form>
+	</div>
+</div>

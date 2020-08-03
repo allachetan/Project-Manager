@@ -1,0 +1,271 @@
+.Task {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 38px;
+  margin-bottom: 5px;
+}
+
+.Task_Container {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  vertical-align: top;
+
+}
+
+.Name_Background {
+  position: relative;
+  width: 50.5%;
+  height: 38px;
+  background: #DCDCDC;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.Status_Background {
+  display: inline-block;
+  position: relative;
+
+  height: 38px;
+
+  margin-left: 0.5%;
+
+  text-align: center;
+  line-height: 38px;
+  vertical-align: top;
+}
+
+.Status_Options {
+  display: block;
+  position: relative;
+
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+  margin-top: 5px;
+
+  height: 38px;
+  text-align: center;
+  line-height: 38px;
+}
+
+.Date_Background {
+  position: relative;
+  display: inline-block;
+
+  width: 15%;
+  height: 38px;
+
+  margin-left: 0.5%;
+
+  z-index: -100;
+
+  background: #DCDCDC;
+  vertical-align: top;
+}
+
+.Date_Border {
+  display: inline-block;
+  position: relative;
+
+  vertical-align: top;
+
+  width: 15%;
+  height: 38px;
+
+  margin-left: -15%;
+
+  background: #DCDCDC;
+
+  text-align: center;
+  line-height: 38px;
+  vertical-align: top;
+}
+
+.Priority_Background {
+  display: inline-block;
+  position: relative;
+
+  width: 15%;
+  height: 38px;
+
+  margin-left: 0.5%;
+
+  text-align: center;
+  line-height: 38px;
+
+  vertical-align: top;
+}
+
+.Priority_Options {
+  display: block;
+  position: relative;
+
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+  margin-top: 5px;
+
+  height: 38px;
+  text-align: center;
+  line-height: 38px;
+}
+
+.Status_Drop_Down_Background {
+  box-sizing: border-box;
+
+  display: inline-block;
+  position: relative;
+  background: #DCDCDC;
+  width: 15%;
+  height: 138px;
+  margin-top: -0.5%;
+  margin-left: -15%;
+  border: solid 2px #ccc;
+  border-radius: 4px;
+
+  vertical-align: top;
+}
+
+.Priority_Drop_Down_Background {
+  box-sizing: border-box;
+  position: relative;
+  display: inline-block;
+  background: #DCDCDC;
+  width: 15%;
+  height: 138px;
+  margin-top: -0.5%;
+  margin-left: -15%;
+  border: solid 2px #ccc;
+  border-radius: 4px;
+
+  vertical-align: top;
+}
+
+
+.Name_Text {
+  margin: 0px;
+  position: absolute;
+  max-width: 390px;
+  height: 38px;
+  left: 5px;
+  top: 0px;
+
+  font-family: Comic Sans MS;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 38px;
+  display: flex;
+  align-items: center;
+
+  color: #000000;
+  cursor: text;
+}
+
+.Date_Text {
+  width: 100%;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+
+  margin: 0px;
+  font-family: Comic Sans MS;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+
+  color: #000000;
+}
+
+.White_Text {
+  margin: 0px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+
+  font-family: Comic Sans MS;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+
+  color: #F7F5F5;
+}
+
+.Profile_Picture {
+  display: flex;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  margin: 0;
+  background: url('../../assets/profile-picture.png');
+  background-size: 30px 30px;
+}
+
+input {
+  position: absolute;
+  width: 170px;
+  height: 38px;
+
+
+  text-align: center;
+  line-height: 38px;
+
+  background: #DCDCDC;
+
+  outline: none;
+  border: none;
+
+  font-family: Comic Sans MS;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+
+  color: #000000;
+
+  display: inline-block;
+  box-sizing: border-box;
+  opacity: 0;
+  vertical-align: top;
+}
+
+.Calendar {
+  position: absolute;
+  display: inline-block;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  right: -5px;
+  top: -2.5px;
+  vertical-align: top;
+}
+
+.Calendar_Button {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  vertical-align: top;
+}
+
+.Delete_Button {
+  display: inline-block;
+  position: relative;
+  height: 80%;
+  width: 2%;
+  margin-left: 0.5%;
+  margin-top: 0.25%;
+  text-align: center;
+  line-height: 30.4px;
+
+  vertical-align: top;
+  background: #E04B69;
+
+  border-radius: 20%;
+
+  cursor: click;
+}
