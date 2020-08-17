@@ -41,7 +41,9 @@ export class TodoTaskComponent implements OnInit {
   ngOnInit() {
     this.todoTaskService.setTaskId(this.taskId);
     this.todoTaskService.setTaskName(this.taskName);
-    this.updateView();
+    if (this.taskId != null || this.taskId === 0) {
+      this.updateView();
+    }
   }
 
   updateView() {
@@ -156,6 +158,7 @@ export class TodoTaskComponent implements OnInit {
     } else {
       this.todoListComponent.completedList.splice(completedIndex, 1);
     }
+    this.todoListComponent.updateLocations();
     this.todoTaskService.deleteTask();
   }
 

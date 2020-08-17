@@ -38,6 +38,10 @@ export class TodoListComponent implements OnInit {
         event.previousIndex,
         event.currentIndex);
     }
+    this.updateLocations();
+  }
+
+  updateLocations() {
     for (let i = 0; i < this.thisWeekList.length; i++) {
       this.updateTaskLocation(this.thisWeekList[i], 0, i);
     }
@@ -128,6 +132,21 @@ export class TodoListComponent implements OnInit {
   loadTasks() {
     this.http.get('http://projectmanagerbackend-env.eba-pkj4ac6b.us-east-1.elasticbeanstalk.com/task/getall/'
       + this.blockId).toPromise().then((data: any[]) => {
+        for (const task of data) {
+          // tslint:disable-next-line: no-string-literal
+          if (task['taskListId'] === 0) {
+            // tslint:disable-next-line: no-string-literal
+            this.thisWeekList.push(0);
+            // tslint:disable-next-line: no-string-literal
+          } else if (task['taskListId'] === 1) {
+            // tslint:disable-next-line: no-string-literal
+            this.nextWeekList.push(0);
+            // tslint:disable-next-line: no-string-literal
+          } else if (task['taskListId'] === 2) {
+            // tslint:disable-next-line: no-string-literal
+            this.completedList.push(0);
+          }
+        }
         for (const task of data) {
           // tslint:disable-next-line: no-string-literal
           if (task['taskListId'] === 0) {
