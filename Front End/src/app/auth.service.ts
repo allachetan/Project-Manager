@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +9,8 @@ export class AuthService {
 
   private currentToken: string;
   private mainBlockId: number;
+
+  private url: string = environment.baseUrl;
 
   constructor(private http: HttpClient) {
     this.currentToken = null;
@@ -42,12 +45,12 @@ export class AuthService {
   }
 
   public login(username: string, password: string) {
-    return this.http.post('http://projectmanagerbackend-env.eba-pkj4ac6b.us-east-1.elasticbeanstalk.com/authenticate'
+    return this.http.post(this.url + 'authenticate'
       , { username, password });
   }
 
   public demo() {
-    return this.http.get('http://projectmanagerbackend-env.eba-pkj4ac6b.us-east-1.elasticbeanstalk.com/demo');
+    return this.http.get(this.url + 'demo');
   }
 
   public logout() {

@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
+
 
 
 @Injectable({
@@ -15,6 +17,7 @@ export class TodoTaskService {
   private statusId = 2;
   private displayDate = 'Apr 12';
   private priorityId = 0;
+  private url: string = environment.baseUrl;
 
   constructor(private http: HttpClient) { }
 
@@ -83,12 +86,12 @@ export class TodoTaskService {
   }
 
   public loadTask() {
-    return this.http.get('http://projectmanagerbackend-env.eba-pkj4ac6b.us-east-1.elasticbeanstalk.com/task/get/'
+    return this.http.get(this.url + 'task/get/'
       + this.taskId).toPromise();
   }
 
   public deleteTask() {
-    this.http.get('http://projectmanagerbackend-env.eba-pkj4ac6b.us-east-1.elasticbeanstalk.com/task/delete/' + this.taskId).subscribe();
+      this.http.get(this.url + 'task/delete/' + this.taskId).subscribe();
   }
 
   public updateTask() {
@@ -103,7 +106,7 @@ export class TodoTaskService {
         displayDate: this.displayDate,
         priorityId: this.priorityId
       };
-      this.http.post('http://projectmanagerbackend-env.eba-pkj4ac6b.us-east-1.elasticbeanstalk.com/task/mod', postData).subscribe();
+      this.http.post(this.url + 'task/mod', postData).subscribe();
     }
   }
 

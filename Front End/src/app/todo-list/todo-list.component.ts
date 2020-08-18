@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 
 @Component({
@@ -13,6 +14,7 @@ export class TodoListComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   @Input() blockId;
+  private url: string = environment.baseUrl;
 
   thisWeekList = [
   ];
@@ -54,7 +56,7 @@ export class TodoListComponent implements OnInit {
   }
 
   updateTaskLocation(taskId: number, taskListId: number, taskIndex: number) {
-    this.http.get('http://projectmanagerbackend-env.eba-pkj4ac6b.us-east-1.elasticbeanstalk.com/task/get/'
+    this.http.get(this.url + 'task/get/'
       + taskId).toPromise().then(data => {
         const postData = {
           // tslint:disable-next-line: object-literal-shorthand
@@ -73,7 +75,7 @@ export class TodoListComponent implements OnInit {
           // tslint:disable-next-line: no-string-literal
           priorityId: data['priorityId']
         };
-        this.http.post('http://projectmanagerbackend-env.eba-pkj4ac6b.us-east-1.elasticbeanstalk.com/task/mod', postData).subscribe();
+        this.http.post(this.url + 'task/mod', postData).subscribe();
       });
   }
 
@@ -88,7 +90,7 @@ export class TodoListComponent implements OnInit {
       displayDate: 'Apr 12',
       priorityId: 0
     };
-    this.http.post('http://projectmanagerbackend-env.eba-pkj4ac6b.us-east-1.elasticbeanstalk.com/task/mod'
+    this.http.post(this.url + 'task/mod'
       , postData).toPromise().then(data => {
         // tslint:disable-next-line: no-string-literal
         this.thisWeekList.push(data['taskId']);
@@ -105,7 +107,7 @@ export class TodoListComponent implements OnInit {
       displayDate: 'Apr 12',
       priorityId: 0
     };
-    this.http.post('http://projectmanagerbackend-env.eba-pkj4ac6b.us-east-1.elasticbeanstalk.com/task/mod'
+    this.http.post(this.url + 'task/mod'
       , postData).toPromise().then(data => {
         // tslint:disable-next-line: no-string-literal
         this.nextWeekList.push(data['taskId']);
@@ -122,7 +124,7 @@ export class TodoListComponent implements OnInit {
       displayDate: 'Apr 12',
       priorityId: 0
     };
-    this.http.post('http://projectmanagerbackend-env.eba-pkj4ac6b.us-east-1.elasticbeanstalk.com/task/mod'
+    this.http.post(this.url + 'task/mod'
       , postData).toPromise().then(data => {
         // tslint:disable-next-line: no-string-literal
         this.completedList.push(data['taskId']);
@@ -130,7 +132,7 @@ export class TodoListComponent implements OnInit {
   }
 
   loadTasks() {
-    this.http.get('http://projectmanagerbackend-env.eba-pkj4ac6b.us-east-1.elasticbeanstalk.com/task/getall/'
+    this.http.get(this.url + 'task/getall/'
       + this.blockId).toPromise().then((data: any[]) => {
         for (const task of data) {
           // tslint:disable-next-line: no-string-literal

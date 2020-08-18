@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
+
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +16,7 @@ export class BlockService {
 
   private blockX: any;
   private blockY: any;
+  private url: string = environment.baseUrl;
 
   constructor(private http: HttpClient) { }
 
@@ -58,12 +61,12 @@ export class BlockService {
   }
 
   getBlockData() {
-    return this.http.get('http://projectmanagerbackend-env.eba-pkj4ac6b.us-east-1.elasticbeanstalk.com/block/get/'
+    return this.http.get(this.url + 'block/get/'
       + this.blockId).toPromise();
   }
 
   getRelationshipData() {
-    return this.http.get('http://projectmanagerbackend-env.eba-pkj4ac6b.us-east-1.elasticbeanstalk.com/block/getrelationships/'
+    return this.http.get(this.url + 'block/getrelationships/'
       + this.blockId).toPromise();
   }
 
@@ -91,7 +94,7 @@ export class BlockService {
         blockX: this.blockX,
         blockY: this.blockY
       };
-      this.http.post('http://projectmanagerbackend-env.eba-pkj4ac6b.us-east-1.elasticbeanstalk.com/block/mod', postData).subscribe();
+      this.http.post(this.url + 'block/mod', postData).subscribe();
     }
   }
 
@@ -102,7 +105,7 @@ export class BlockService {
       blockX: this.blockX,
       blockY: this.blockY
     };
-    this.http.post('http://projectmanagerbackend-env.eba-pkj4ac6b.us-east-1.elasticbeanstalk.com/block/mod',
+    this.http.post(this.url + 'block/mod',
       postData).toPromise().then(data => {
         // tslint:disable-next-line: no-string-literal
         this.blockId = data['blockId'];
@@ -117,12 +120,12 @@ export class BlockService {
       // tslint:disable-next-line: object-literal-shorthand
       childId: childId
     };
-    this.http.post('http://projectmanagerbackend-env.eba-pkj4ac6b.us-east-1.elasticbeanstalk.com/block/addrelationship',
+    this.http.post(this.url + 'block/addrelationship',
       relationshipData).subscribe();
   }
 
   deleteBlock() {
-    this.http.get('http://projectmanagerbackend-env.eba-pkj4ac6b.us-east-1.elasticbeanstalk.com/block/delete/' + this.blockId).subscribe(
+    this.http.get(this.url + 'block/delete/' + this.blockId).subscribe(
       data => {
         window.location.reload();
       });

@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
+
 
 
 @Injectable({
@@ -19,6 +21,7 @@ export class FullBlockService {
     ' can even hold this much text. Bruh I need somethign to finish this line and gg ez.';
   private blockX: any;
   private blockY: any;
+  private url: string = environment.baseUrl;
 
   constructor(private http: HttpClient) { }
 
@@ -47,7 +50,7 @@ export class FullBlockService {
   }
 
   getBlockData() {
-    return this.http.get('http://projectmanagerbackend-env.eba-pkj4ac6b.us-east-1.elasticbeanstalk.com/block/get/' + this.id).toPromise();
+    return this.http.get(this.url + 'block/get/' + this.id).toPromise();
   }
 
   loadBlock() {
@@ -74,7 +77,7 @@ export class FullBlockService {
         blockX: this.blockX,
         blockY: this.blockY
       };
-      this.http.post('http://projectmanagerbackend-env.eba-pkj4ac6b.us-east-1.elasticbeanstalk.com/block/mod', postData).subscribe();
+      this.http.post(this.url + 'block/mod', postData).subscribe();
     }
   }
 
