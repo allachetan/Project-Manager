@@ -9,10 +9,8 @@ import { environment } from '../../environments/environment';
 export class BlockService {
 
   private blockId: number;
-  private title = 'penis title';
-  private description = 'This is my test description for my module. Please look very cool and sexy. This matters a lot and sets'
-    + '  the looks for future modules and such so look very cool please. My name is Chetan and I am very cool'
-    + ' Guy everyone knows that i am the coolest kid in town you know. do you ever....';
+  private title = 'Example title';
+  private description = 'Example description';
 
   private blockX: any;
   private blockY: any;
