@@ -9,8 +9,8 @@ import { environment } from '../../environments/environment';
 export class BlockService {
 
   private blockId: number;
-  private title = 'Example title';
-  private description = 'Example description';
+  private title = '';
+  private description = '';
 
   private blockX: any;
   private blockY: any;
